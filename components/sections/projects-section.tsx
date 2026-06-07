@@ -1,10 +1,4 @@
-import type { Metadata } from "next"
-import { PageShell } from "@/components/page-shell"
-
-export const metadata: Metadata = {
-  title: "Projects — Studio Pixel",
-  description: "Ongoing and archived projects from Studio Pixel.",
-}
+import { Section, SectionHeading } from "./section"
 
 const projects = [
   {
@@ -33,14 +27,15 @@ const projects = [
   },
 ]
 
-export default function ProjectsPage() {
+export function ProjectsSection() {
   return (
-    <PageShell
-      eyebrow="What We Build"
-      title="Projects"
-      description="A running log of studio projects, experiments, and collaborations. All content below is placeholder."
-    >
-      <div className="divide-y divide-white/10 border-t border-white/10">
+    <Section id="projects">
+      <SectionHeading
+        eyebrow="What We Build"
+        title="Projects"
+        description="A running log of studio projects, experiments, and collaborations. All content below is placeholder."
+      />
+      <div className="mt-16 divide-y divide-white/10 border-t border-white/10">
         {projects.map((project) => (
           <article
             key={project.title}
@@ -48,7 +43,7 @@ export default function ProjectsPage() {
           >
             <div className="md:col-span-1 font-mono text-xs tracking-widest text-white/40">{project.year}</div>
             <div className="md:col-span-7">
-              <h2 className="font-mono text-lg tracking-[0.2em] uppercase">{project.title}</h2>
+              <h3 className="font-mono text-lg tracking-[0.2em] uppercase">{project.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-white/50 text-pretty">{project.summary}</p>
             </div>
             <div className="md:col-span-4 md:text-right">
@@ -59,6 +54,6 @@ export default function ProjectsPage() {
           </article>
         ))}
       </div>
-    </PageShell>
+    </Section>
   )
 }

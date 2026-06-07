@@ -3,9 +3,9 @@
 import type React from "react"
 
 import { useState } from "react"
-import { PageShell } from "@/components/page-shell"
+import { Section, SectionHeading } from "./section"
 
-export default function ContactPage() {
+export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -14,12 +14,13 @@ export default function ContactPage() {
   }
 
   return (
-    <PageShell
-      eyebrow="Say Hello"
-      title="Get In Touch"
-      description="Tell us about your project. This is a placeholder form — submissions are not yet wired to a backend."
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <Section id="contact">
+      <SectionHeading
+        eyebrow="Say Hello"
+        title="Get In Touch"
+        description="Tell us about your project. This is a placeholder form — submissions are not yet wired to a backend."
+      />
+      <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <form onSubmit={handleSubmit} className="space-y-6 max-w-xl">
           <div className="space-y-2">
             <label htmlFor="name" className="block font-mono text-xs tracking-widest uppercase text-white/40">
@@ -98,6 +99,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    </PageShell>
+    </Section>
   )
 }

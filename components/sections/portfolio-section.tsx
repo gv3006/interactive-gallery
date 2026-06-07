@@ -1,10 +1,4 @@
-import type { Metadata } from "next"
-import { PageShell } from "@/components/page-shell"
-
-export const metadata: Metadata = {
-  title: "Portfolio — Studio Pixel",
-  description: "Selected works and case studies from Studio Pixel.",
-}
+import { Section, SectionHeading } from "./section"
 
 const works = [
   { title: "Fashion Studio", category: "Branding", year: "2024" },
@@ -15,14 +9,15 @@ const works = [
   { title: "Editorial Series", category: "Photography", year: "2023" },
 ]
 
-export default function PortfolioPage() {
+export function PortfolioSection() {
   return (
-    <PageShell
-      eyebrow="Selected Works"
-      title="Portfolio"
-      description="A curated selection of projects spanning branding, design, and creative direction. Placeholder content shown below."
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <Section id="portfolio">
+      <SectionHeading
+        eyebrow="Selected Works"
+        title="Portfolio"
+        description="A curated selection of projects spanning branding, design, and creative direction. Placeholder content shown below."
+      />
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {works.map((work) => (
           <article
             key={work.title}
@@ -34,7 +29,7 @@ export default function PortfolioPage() {
               className="w-full aspect-[4/3] object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
             />
             <div className="p-6">
-              <h2 className="font-mono text-sm tracking-[0.25em] uppercase">{work.title}</h2>
+              <h3 className="font-mono text-sm tracking-[0.25em] uppercase">{work.title}</h3>
               <div className="mt-3 flex items-center justify-between font-mono text-xs tracking-widest uppercase text-white/40">
                 <span>{work.category}</span>
                 <span>{work.year}</span>
@@ -43,6 +38,6 @@ export default function PortfolioPage() {
           </article>
         ))}
       </div>
-    </PageShell>
+    </Section>
   )
 }
