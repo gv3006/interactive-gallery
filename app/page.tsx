@@ -13,6 +13,14 @@ export default function Page() {
 
       {/* Landing hero — Works Gallery */}
       <main className="pt-32 pb-16">
+        <div className="mx-auto max-w-4xl px-6 pb-16 text-center">
+          <h1 className="font-mono text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-balance">
+            Your website should reflect the quality of your care
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl font-mono text-sm md:text-base leading-relaxed tracking-wide text-white/60 text-pretty">
+            Explore modern website options built to help patients trust your practice and take the next step
+          </p>
+        </div>
         <WorksGallery />
       </main>
 
